@@ -12,7 +12,7 @@ public class Prekazka {
    static EV3LargeRegulatedMotor motorVPravo = new EV3LargeRegulatedMotor(MotorPort.C);
     public static void main(String[] args) {
 
-     for (int i = 0;i < 200;i++)
+     for (int i = 0;i < 5;i++)
      {
          JedVpred();
         if (JeTamPrekazka()== true)
@@ -24,6 +24,9 @@ public class Prekazka {
 
 
      }
+        motorVLevo.stop();
+        motorVPravo.stop();
+
 
     }
 
@@ -46,18 +49,22 @@ public class Prekazka {
         return pole[0] < 15;
     }
     private static void ZastavCouvniOtoc() {
-        motorVLevo.stop();
-        motorVPravo.stop();
+        //motorVLevo.stop();
+        //motorVPravo.stop();
 
         motorVLevo.backward();
         motorVPravo.backward();
 
         Delay.msDelay(1000);
 
-        motorVLevo.rotate(2081, true);
-        motorVPravo.rotate(-2081, false);
-        motorVLevo.rotate(202, true);
-        motorVPravo.rotate(-202, false);
+        motorVLevo.rotate(365, true);
+        System.out.println("R1");
+        motorVPravo.rotate(-365, false);
+        System.out.println("R2");
+        //motorVLevo.rotate(202, true);
+        //motorVPravo.rotate(-202, false);
+        motorVLevo.stop();
+        motorVPravo.stop();
 
     }
 
